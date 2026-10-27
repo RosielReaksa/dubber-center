@@ -1,0 +1,63 @@
+{
+  "brand": "Dubber Center",
+  "nav": {
+    "models": "Models",
+    "docs": "Docs",
+    "status": "Status",
+    "pricing": "Pricing",
+    "studio": "Dub studio",
+    "jobs": "Activity",
+    "keys": "API keys",
+    "credits": "Credits",
+    "usage": "Usage",
+    "settings": "Settings",
+    "admin": "Admin",
+    "login": "Sign in",
+    "signup": "Get started",
+    "logout": "Sign out"
+  },
+  "common": {
+    "search": "Search",
+    "searchModels": "Search models…",
+    "copy": "Copy",
+    "copied": "Copied",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "saving": "Saving…",
+    "retry": "Retry",
+    "clear": "Clear",
+    "clearFilters": "Clear filters",
+    "loading": "Loading…",
+    "previous": "Previous",
+    "next": "Next",
+    "close": "Close",
+    "open": "Open",
+    "view": "View",
+    "all": "All",
+    "none": "None",
+    "yes": "Yes",
+    "no": "No",
+    "theme": "Theme",
+    "language": "Language",
+    "english": "English",
+    "khmer": "ខ្មែរ"
+  },
+  "status": {
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "down": "Unavailable",
+    "unknown": "No data",
+    "beta": "Beta",
+    "disabled": "Disabled",
+    "healthyTip": "Working normally.",
+    "degradedTip": "Working but slower or less reliable than usual.",
+    "downTip": "Not accepting new jobs right now.",
+    "unknownTip": "Not enough data yet.",
+    "allNormal": "All systems normal",
+    "uptime": "uptime"
+  },
+  "empty": {
+    "nothingHere": "Nothing here yet."
+  }
+}

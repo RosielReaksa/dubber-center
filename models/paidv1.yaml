@@ -1,0 +1,31 @@
+id: paidv1
+name: Paid V1
+description: Full dubbing pipeline through paid transcription, translation and voice APIs.
+type: api
+status: active
+version: 1
+languages:
+  source: [en, zh, th]
+  target: [km, en]
+price_per_minute: 0.40
+max_video_minutes: 60
+max_concurrent: 10
+timeout_minutes: 45
+features: [subtitles, multi_speaker]
+fallback: localv1
+health:
+  ping_interval_sec: 60
+  canary:
+    enabled: true
+    interval_minutes: 60
+    sample: canary/sample_en_10s.mp4
+    source_lang: en
+    target_lang: km
+runner:
+  kind: http
+  http:
+    submit_url: http://paid-system.internal/dub
+    status_url: http://paid-system.internal/jobs/{external_id}
+    result_url: http://paid-system.internal/jobs/{external_id}/result
+    cancel_url: http://paid-system.internal/jobs/{external_id}/cancel
+    health_url: http://paid-system.internal/health

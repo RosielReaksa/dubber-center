@@ -1,0 +1,33 @@
+id: localv1
+name: Local V1
+description: Full dubbing pipeline running on local GPU models. Cheaper, slower.
+type: local
+status: active
+version: 1
+languages:
+  source: [en, zh]
+  target: [en, km]
+price_per_minute: 0.05
+max_video_minutes: 30
+max_concurrent: 1
+timeout_minutes: 120
+features: [subtitles]
+health:
+  ping_interval_sec: 60
+  baseline_p95_sec: 340        # a slow local model; p95 baseline for the degraded rule
+  max_queue_wait_minutes: 30   # a single GPU queues; allow a long wait before degraded
+  canary:
+    enabled: true
+    interval_minutes: 30
+    sample: canary/sample_en_10s.mp4
+    source_lang: en
+    target_lang: km
+    low_priority: true         # single GPU: skip if a user job is running
+runner:
+  kind: cli
+  cli:
+    command: "python /opt/localv1/dub.py --input {input} --outdir {outdir} --src {source_lang} --tgt {target_lang}"
+    progress_file: "{outdir}/progress.json"
+    output_file: "{outdir}/dubbed.mp4"
+    subtitles_file: "{outdir}/subs.srt"
+    health_command: "nvidia-smi --query-gpu=name --format=csv,noheader"

@@ -1,0 +1,27 @@
+id: fake
+name: Fake (test)
+description: Deterministic test model. Sleeps, copies the input, never calls anything.
+type: hybrid
+status: beta
+version: 1
+languages:
+  source: [en, zh, th, km]
+  target: [en, km, zh, th]
+price_per_minute: 0.00
+max_video_minutes: 60
+max_concurrent: 10
+timeout_minutes: 10
+features: [subtitles]
+is_fake: true
+health:
+  ping_interval_sec: 60
+  canary:
+    enabled: true
+    interval_minutes: 30
+    sample: canary/sample_en_10s.mp4
+    source_lang: en
+    target_lang: km
+runner:
+  kind: python
+  python:
+    class_path: "dubber_center.adapters.fake:FakeAdapter"
